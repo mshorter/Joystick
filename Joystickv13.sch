@@ -64,6 +64,8 @@
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -97,6 +99,7 @@
 <layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="no" active="yes"/>
@@ -132,6 +135,13 @@
 <layer number="222" name="222bmp" color="23" fill="1" visible="no" active="no"/>
 <layer number="223" name="223bmp" color="24" fill="1" visible="no" active="no"/>
 <layer number="224" name="224bmp" color="25" fill="1" visible="no" active="no"/>
+<layer number="225" name="225bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="226" name="226bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="227" name="227bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="228" name="228bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="229" name="229bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="230" name="230bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="231" name="231bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
@@ -3761,6 +3771,12 @@ We've spent an enormous amount of time creating and checking these footprints an
 <vertex x="0.4186" y="-1.0105"/>
 </polygon>
 </package>
+<package name="FIDUCIAL-1X2">
+<smd name="1" x="0" y="0" dx="1" dy="1" layer="1" roundness="100" cream="no"/>
+</package>
+<package name="MICRO-FIDUCIAL">
+<smd name="1" x="0" y="0" dx="0.635" dy="0.635" layer="1" roundness="100" cream="no"/>
+</package>
 </packages>
 <symbols>
 <symbol name="LETTER_L">
@@ -7372,6 +7388,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 <vertex x="0.6834" y="-1.65"/>
 </polygon>
 </symbol>
+<symbol name="FIDUCIAL">
+<wire x1="-0.762" y1="0.762" x2="0.762" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="0.762" y1="0.762" x2="-0.762" y2="-0.762" width="0.254" layer="94"/>
+<circle x="0" y="0" radius="1.27" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="FRAME-LETTER" prefix="FRAME">
@@ -7429,7 +7450,8 @@ Standard 8.5x11 US Letter frame</description>
 </devices>
 </deviceset>
 <deviceset name="OSHW-LOGO" prefix="LOGO">
-<description>&lt;b&gt;Open Source Hardware Logo&lt;/b&gt; This logo indicates the piece of hardware it is found on incorporates a OSHW license and/or adheres to the definition of open source hardware found here: http://freedomdefined.org/OSHW</description>
+<description>&lt;b&gt;Open Source Hardware Logo&lt;/b&gt;
+ This logo indicates the piece of hardware it is found on incorporates a OSHW license and/or adheres to the definition of open source hardware found here: http://freedomdefined.org/OSHW</description>
 <gates>
 <gate name="G$1" symbol="OSHW-LOGO" x="-5.08" y="-5.08"/>
 </gates>
@@ -7445,6 +7467,25 @@ Standard 8.5x11 US Letter frame</description>
 </technologies>
 </device>
 <device name="L" package="OSHW-LOGO-L">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="FIDUCIAL" prefix="FID">
+<description>&lt;b&gt;Fiducial Alignment Points&lt;/b&gt;
+Various fiducial points for machine vision alignment.</description>
+<gates>
+<gate name="G$1" symbol="FIDUCIAL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="1X2" package="FIDUCIAL-1X2">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="UFIDUCIAL" package="MICRO-FIDUCIAL">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -8555,10 +8596,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="S6" library="SparkFun-Electromechanical" deviceset="SWITCH-SPDT" device="PTH"/>
 <part name="LED1" library="SparkFun-LED" deviceset="LED-YELLOW" device="0603" value="Yellow"/>
 <part name="LED2" library="SparkFun-LED" deviceset="LED-RED" device="0603" value="RED"/>
-<part name="LED3" library="SparkFun-LED" deviceset="LED-GREEN" device="0603" value="GREEN"/>
-<part name="LED4" library="SparkFun-LED" deviceset="LED-YELLOW" device="0603" value="GREEN"/>
+<part name="LED3" library="SparkFun-LED" deviceset="LED-GREEN" device="0603" value="Green"/>
+<part name="LED4" library="SparkFun-LED" deviceset="LED-YELLOW" device="0603" value="Yellow"/>
 <part name="LED5" library="SparkFun-LED" deviceset="LED-GREEN" device="0603" value="GREEN"/>
-<part name="LED6" library="SparkFun-LED" deviceset="LED-YELLOW" device="0603"/>
+<part name="LED6" library="SparkFun-LED" deviceset="LED-YELLOW" device="0603" value="Yellow"/>
 <part name="LED7" library="SparkFun-LED" deviceset="LED-RED" device="0603" value="RED"/>
 <part name="LED8" library="SparkFun-LED" deviceset="LED-BLUE" device="0603" value="BLUE"/>
 <part name="R10" library="SparkFun-Resistors" deviceset="470OHM1/10W1%(0603)" device="" value="470"/>
@@ -8590,7 +8631,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="S2" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="12MM"/>
 <part name="S3" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="12MM"/>
 <part name="S4" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="12MM"/>
-<part name="LOGO1" library="SparkFun-Aesthetics" deviceset="OSHW-LOGO" device="L"/>
+<part name="LOGO1" library="SparkFun-Aesthetics" deviceset="OSHW-LOGO" device="M" value="OSHW-LOGOM"/>
+<part name="FID1" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="UFIDUCIAL"/>
+<part name="FID2" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="UFIDUCIAL"/>
 </parts>
 <sheets>
 <sheet>
@@ -8697,6 +8740,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="S3" gate="G$1" x="0" y="129.54"/>
 <instance part="S4" gate="G$1" x="0" y="119.38"/>
 <instance part="LOGO1" gate="G$1" x="180.34" y="30.48"/>
+<instance part="FID1" gate="G$1" x="190.5" y="17.78"/>
+<instance part="FID2" gate="G$1" x="190.5" y="10.16"/>
 </instances>
 <busses>
 </busses>
@@ -8715,7 +8760,16 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-27.94" y1="144.78" x2="-27.94" y2="154.94" width="0.1524" layer="91"/>
 <junction x="-27.94" y="154.94"/>
 <pinref part="P+1" gate="G$1" pin="3.3V"/>
-<wire x1="-27.94" y1="154.94" x2="-27.94" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="-27.94" y1="154.94" x2="-27.94" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="SEL-"/>
+<wire x1="-27.94" y1="157.48" x2="-27.94" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="132.08" x2="-33.02" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="124.46" x2="-50.8" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="-50.8" y1="124.46" x2="-50.8" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="-50.8" y1="160.02" x2="-33.02" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="160.02" x2="-33.02" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="157.48" x2="-27.94" y2="157.48" width="0.1524" layer="91"/>
+<junction x="-27.94" y="157.48"/>
 </segment>
 <segment>
 <wire x1="5.08" y1="119.38" x2="10.16" y2="119.38" width="0.1524" layer="91"/>
@@ -8944,14 +8998,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U$1" gate="G$1" pin="PF6(ADC6)"/>
 <wire x1="175.26" y1="142.24" x2="180.34" y2="142.24" width="0.1524" layer="91"/>
 <label x="180.34" y="142.24" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$22" class="0">
-<segment>
-<pinref part="R8" gate="G$1" pin="2"/>
-<wire x1="-30.48" y1="129.54" x2="-30.48" y2="132.08" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="SEL-"/>
-<wire x1="-30.48" y1="132.08" x2="-33.02" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="D2" class="0">
@@ -9272,8 +9318,12 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <net name="D8" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="SEL+"/>
-<wire x1="-33.02" y1="134.62" x2="-22.86" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="134.62" x2="-30.48" y2="134.62" width="0.1524" layer="91"/>
 <label x="-25.4" y="134.62" size="1.778" layer="95"/>
+<pinref part="R8" gate="G$1" pin="2"/>
+<wire x1="-30.48" y1="134.62" x2="-22.86" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="134.62" x2="-30.48" y2="129.54" width="0.1524" layer="91"/>
+<junction x="-30.48" y="134.62"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="PB4(ADC11)"/>
