@@ -8639,7 +8639,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <sheet>
 <plain>
 <text x="2.54" y="99.06" size="1.778" layer="91">Misc LEDs, can be used with XBee (RSSI, RX,TX,Associate, etc.) or anything else you want</text>
-<text x="40.64" y="96.52" size="1.778" layer="91">Active High</text>
 </plain>
 <instances>
 <instance part="U1" gate="G$1" x="-43.18" y="144.78" rot="MR0"/>
