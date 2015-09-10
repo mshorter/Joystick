@@ -1,0 +1,45 @@
+1) Are all net lines 0.006 inch? [YES]
+comment: don't know
+
+2) Does every part have a NAME and VALUE (with proper prefix and no '$')? [NO]
+comment: Get rid of switch name and others
+
+3) Does every part have a PROD_ID? [NO]
+comment: I think so, how do I tell
+
+4) Are 0.1 inch headers lined up on 0.1 inch grid? [NO]
+comment: don't know
+
+5) Are opposing 0.1 inch headers spaced to fit into a breadboard? [NO]
+comment: don't know
+
+6) Does the board have standoffs? [NO]
+comment: do we want them?
+
+7) If possible, are all overhanging parts on the same edge of the board (this helps with panelization)? [YES]
+comment: USB should be only over hanging part
+
+8) As best as possible, do all SMD pads have only 1 trace entering the pad? [NO]
+comment: maybe
+
+9) Are all QFN components with 6 or more leads 75 percent pasted? [YES]
+comment: no idea
+
+10) Is the copper pour set to 0.012 inch isolate? [YES]
+comment: no idea
+
+11) Does it pass SparkFun DRC? [NO]
+comment: it does pass GP DRC
+
+12) Are the board dimensions on 0.05 inch or 0.01 inch grid? [NO]
+comment: Maybe
+
+13) Are all PTH pins labeled? [NO]
+comment: Label ISP?
+
+14) Are all labels lined up properly? [NO]
+comment: what is properly
+
+15) Do all components have polarity or pin 1 labeled? [NO]
+comment: outer polarity on IC
+
